@@ -41,7 +41,7 @@ class Favorite extends StatelessWidget {
                       title: "title",
                       date: "date",
                       imageUrl: "imageUrl",
-                      articleUrl: " articleUrl",
+                      // articleUrl: " articleUrl",
                     ).animate().slideX(
                         begin: -10,
                         end: 0,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CategoryTileWidget extends StatelessWidget {
   final String categoryImagePath;
   final String categoryName;
+
   const CategoryTileWidget(
       {super.key, required this.categoryImagePath, required this.categoryName});
 
@@ -26,11 +27,12 @@ class CategoryTileWidget extends StatelessWidget {
 
         //to show the front layer text representing the category name
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14,vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
           child: Text(
+            overflow: TextOverflow.ellipsis,
             categoryName,
             style: const TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w700),
+                color: Colors.white, fontSize: 22, fontWeight: FontWeight.w700),
           ),
         )
       ],

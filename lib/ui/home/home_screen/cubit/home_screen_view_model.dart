@@ -9,7 +9,7 @@ class HomeScreenViewModel extends Cubit<HomeStates> {
   HomeScreenViewModel() : super(HomeInitialState());
 
   //todo: hold data - handle logic
-  int selectedIndex = 0;
+  int selectedIndex = 1;
   List<Widget> tabs = [
     HomeView(),
     CategorySelectionView(),
