@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../utils/mythemes.dart';
 import '../../../utils/widgets/components/gradient_container_widget.dart';
 import '../../../utils/widgets/tiles/news_article_tile_widget.dart';
+import '../../details_screen/details_screen.dart';
 
 class HomeView extends StatelessWidget {
   static const String routeName = "HomeView";
@@ -49,9 +50,8 @@ class HomeView extends StatelessWidget {
               BlocBuilder<HomeViewViewModel, TopHeadlineStates>(
                 bloc: viewModel..showTopHeadlines(),
                 builder: (context, state) {
-
                   if (state is TopHeadlineLoadingState) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                         color: Colors.red,
                       ),
@@ -67,13 +67,26 @@ class HomeView extends StatelessWidget {
                           // Return your news article tile widget here based on index
                           return NewsArticleTile(
                             onPressedFavorite: () {},
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (context) {
+                                return DetailsScreen(
+                                  articlesEntity:
+                                      viewModel.topHeadlineData[index],
+                                );
+                              }));
+                            },
                             author:
                                 viewModel.topHeadlineData[index]?.author ?? '',
-                            title: viewModel.topHeadlineData[index]?.title ?? '',
-                            date:viewModel.topHeadlineData[index]?.publishedAt ?? '',
-                            imageUrl: viewModel.topHeadlineData[index]?.urlToImage ?? '',
-                            articleUrl: viewModel.topHeadlineData[index]?.url ?? '',
+                            title:
+                                viewModel.topHeadlineData[index]?.title ?? '',
+                            date:
+                                viewModel.topHeadlineData[index]?.publishedAt ??
+                                    '',
+                            imageUrl:
+                                viewModel.topHeadlineData[index]?.urlToImage ??
+                                    '',
+
                           ).animate().slideX(
                               begin: -10,
                               end: 0,
@@ -81,11 +94,8 @@ class HomeView extends StatelessWidget {
                               curve: Curves.fastEaseInToSlowEaseOut,
                               delay: Duration(milliseconds: 200 * index));
                         },
-
                       ),
-
                     );
-
                   }
                   return Container();
                 },

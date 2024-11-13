@@ -3,7 +3,7 @@ import 'package:alakhbar/domin/repository/repositories/top_headline_repository.d
 import '../entity/TopHeadLines.dart';
 
 class TopHeadlineUseCase {
-  TopHeadlineRepository topHeadlineRepository;
+  final TopHeadlineRepository topHeadlineRepository;
 
   TopHeadlineUseCase({required this.topHeadlineRepository});
 

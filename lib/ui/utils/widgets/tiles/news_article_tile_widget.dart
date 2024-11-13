@@ -9,7 +9,6 @@ class NewsArticleTile extends StatelessWidget {
   final String? date;
   final String? title;
   final String? imageUrl;
-  final String? articleUrl;
   final Function onTap;
   final Function onPressedFavorite;
 
@@ -19,7 +18,6 @@ class NewsArticleTile extends StatelessWidget {
     required this.date,
     required this.title,
     required this.imageUrl,
-    required this.articleUrl,
     required this.onTap,
     required this.onPressedFavorite,
   });
@@ -83,6 +81,7 @@ class NewsArticleTile extends StatelessWidget {
                           : "Source unknown",
                       style: MyTheme.myTheme.textTheme.displaySmall,
                     ),
+
 
                     const SizedBox(height: 3),
 
