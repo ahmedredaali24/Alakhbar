@@ -1,4 +1,4 @@
-import 'package:alakhbar/data/model/top_headline_response_dto.dart';
+import 'package:alakhbar/ui/home/details_screen/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -59,7 +59,17 @@ class CategoryArticleView extends StatelessWidget {
                     return NewsArticleTile(
                       onPressedFavorite: () {},
                       onTap: () {
-
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return DetailsScreen(
+                            title: newsList[index]?.title ?? "",
+                            author: newsList[index]?.author ?? "",
+                            content: newsList[index]?.content ?? "",
+                            publishedAt: newsList[index]?.publishedAt ?? "",
+                            url: newsList[index]?.url ?? "",
+                            urlToImage: newsList[index]?.urlToImage ?? "",
+                          );
+                        }));
                       },
                       author: newsList[index]?.author ?? "Unknown",
                       title: newsList[index]?.title ?? "Unknown",

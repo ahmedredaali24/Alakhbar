@@ -71,8 +71,23 @@ class HomeView extends StatelessWidget {
                               Navigator.of(context)
                                   .push(MaterialPageRoute(builder: (context) {
                                 return DetailsScreen(
-                                  articlesEntity:
-                                      viewModel.topHeadlineData[index],
+                                  title:
+                                      viewModel.topHeadlineData[index]?.title ??
+                                          "",
+                                  author: viewModel
+                                          .topHeadlineData[index]?.author ??
+                                      "",
+                                  content: viewModel
+                                          .topHeadlineData[index]?.content ??
+                                      "",
+                                  publishedAt: viewModel.topHeadlineData[index]
+                                          ?.publishedAt ??
+                                      "",
+                                  url: viewModel.topHeadlineData[index]?.url ??
+                                      "",
+                                  urlToImage: viewModel
+                                          .topHeadlineData[index]?.urlToImage ??
+                                      "",
                                 );
                               }));
                             },
@@ -86,7 +101,6 @@ class HomeView extends StatelessWidget {
                             imageUrl:
                                 viewModel.topHeadlineData[index]?.urlToImage ??
                                     '',
-
                           ).animate().slideX(
                               begin: -10,
                               end: 0,

@@ -5,9 +5,21 @@ import 'package:intl/intl.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final ArticlesEntity? articlesEntity;
+  final String? title;
+  final String? urlToImage;
+  final String? author;
+  final String? content;
+  final String? url;
+  final String publishedAt;
 
-  DetailsScreen({super.key, required this.articlesEntity});
+  DetailsScreen(
+      {super.key,
+      required this.title,
+      required this.urlToImage,
+      required this.author,
+      required this.content,
+      required this.url,
+      required this.publishedAt});
 
   final DetailsScreenViewModel viewModel = DetailsScreenViewModel();
 
@@ -18,7 +30,7 @@ class DetailsScreen extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            articlesEntity?.title ?? "",
+            title ?? "",
           ),
         ),
         body: SingleChildScrollView(
@@ -29,9 +41,9 @@ class DetailsScreen extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(6),
-                  child: articlesEntity?.urlToImage != null
+                  child: urlToImage != null
                       ? Image.network(
-                          "${articlesEntity?.urlToImage}",
+                          "$urlToImage",
                           width: 118,
                           height: 300,
                           fit: BoxFit.cover,
@@ -66,7 +78,7 @@ class DetailsScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  articlesEntity?.author ?? "Unknown",
+                  author ?? "Unknown",
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
@@ -76,14 +88,14 @@ class DetailsScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  articlesEntity?.content ?? "Unknown",
+                  content ?? "Unknown",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  DateFormat.yMMM().format(
-                      DateTime.parse(articlesEntity?.publishedAt ?? "Unknown")),
+                  DateFormat.yMMM()
+                      .format(DateTime.parse(publishedAt)),
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
@@ -95,7 +107,7 @@ class DetailsScreen extends StatelessWidget {
                 ),
                 TextButton(
                     onPressed: () async {
-                      viewModel.moreDetails("${articlesEntity?.url}");
+                      viewModel.moreDetails("$url");
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,

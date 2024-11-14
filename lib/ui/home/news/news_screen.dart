@@ -1,5 +1,5 @@
 import 'package:alakhbar/domin/dependence_injection.dart';
-import 'package:alakhbar/ui/home/news/tab/tab_item.dart';
+import 'package:alakhbar/ui/home/news/tabs/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../tabs/category/category_article_view.dart';
