@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-
 import '../../mythemes.dart';
 import '../helpers/button_widget.dart';
 
@@ -9,7 +9,6 @@ class NewsArticleTile extends StatelessWidget {
   final String? date;
   final String? title;
   final String? imageUrl;
-  final String? articleUrl;
   final Function onTap;
   final Function onPressedFavorite;
 
@@ -19,7 +18,6 @@ class NewsArticleTile extends StatelessWidget {
     required this.date,
     required this.title,
     required this.imageUrl,
-    required this.articleUrl,
     required this.onTap,
     required this.onPressedFavorite,
   });
@@ -27,19 +25,19 @@ class NewsArticleTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 23, left: 3, right: 3),
+      margin: EdgeInsets.only(top: 10.h, left: 2.w, right: 2.w),
       child: Column(
         children: [
           Row(
             children: [
               // Left part: Image
               ClipRRect(
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(5.r),
                 child: imageUrl != null
                     ? Image.network(
                         imageUrl.toString(),
-                        width: 118,
-                        height: 118,
+                        width: 100.w,
+                        height: 100.h,
                         fit: BoxFit.cover,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) {
@@ -47,32 +45,32 @@ class NewsArticleTile extends StatelessWidget {
                           }
                           return Container(
                               color: Colors.black12,
-                              width: 118,
-                              height: 118,
+                              width: 100.w,
+                              height: 100.h,
                               child: LoadingAnimationWidget.fourRotatingDots(
-                                  color: Colors.black54, size: 30));
+                                  color: Colors.black54, size: 30.r));
                         },
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
-                            width: 118,
-                            height: 118,
+                            width: 100.w,
+                            height: 100.h,
                             color: Colors.black12,
-                            child: const Icon(Icons.error_outline, size: 40),
+                            child: Icon(Icons.error_outline, size: 30.r),
                           );
                         },
                       )
                     : Container(
-                        height: 118,
-                        width: 118,
+                        width: 100.w,
+                        height: 100.h,
                         color: Colors.black12,
-                        child: const Icon(Icons.photo, size: 40),
+                        child: Icon(Icons.photo, size: 30.r),
                       ),
               ),
-              const SizedBox(width: 15),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.03),
 
               // Content
               SizedBox(
-                width: 230,
+                width: 200.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -84,7 +82,8 @@ class NewsArticleTile extends StatelessWidget {
                       style: MyTheme.myTheme.textTheme.displaySmall,
                     ),
 
-                    const SizedBox(height: 3),
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.003),
 
                     // Title of the article
                     Text(
@@ -93,7 +92,8 @@ class NewsArticleTile extends StatelessWidget {
                       style: MyTheme.myTheme.textTheme.displayMedium,
                     ),
 
-                    const SizedBox(height: 5),
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.005),
 
                     // Row
                     Row(
@@ -103,8 +103,8 @@ class NewsArticleTile extends StatelessWidget {
                           onTap: () {
                             onTap();
                           },
-                          height: 36,
-                          width: 129.62,
+                          height: 28.h,
+                          width: 110.62.w,
                         ),
                         IconButton(
                           onPressed: () {
@@ -123,10 +123,10 @@ class NewsArticleTile extends StatelessWidget {
 
           // Separator line
           Container(
-            margin: const EdgeInsets.only(top: 23),
+            margin: EdgeInsets.only(top: 12.h),
             color: Colors.black26,
             width: double.maxFinite,
-            height: 0.5,
+            height: 0.5.h,
           ),
         ],
       ),

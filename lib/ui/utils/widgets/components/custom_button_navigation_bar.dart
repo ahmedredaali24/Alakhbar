@@ -16,7 +16,6 @@ Widget buildCustomBottomNavigationBar(
       selectedLabelStyle: TextStyle(color: Colors.black),
       items: const [
         BottomNavigationBarItem(
-
             icon: Icon(
               CupertinoIcons.home,
               color: Colors.black,
