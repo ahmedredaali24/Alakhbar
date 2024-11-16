@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../mythemes.dart';
 
@@ -23,7 +24,9 @@ class ButtonWidget extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5), color: Colors.black),
+          borderRadius: BorderRadius.circular(5.r),
+          color: Colors.black,
+        ),
         child: Center(
           child: Text(
             'Read more',

@@ -47,6 +47,7 @@ dependencies:
   connectivity_plus: ^5.0.2
   url_launcher: ^6.3.1
   shared_preferences: ^2.3.3
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.1
@@ -58,7 +59,7 @@ flutter_launcher_icons:
   image_path: "assets/main/logo.png"
   adaptive_icon_background: "#ffffff"
   adaptive_icon_foreground: "assets/main/logo.png"
-#  min_sdk_android: 21 # android min sdk min:16, default 21
+  #  min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
     image_path: "assets/main/logo.png"

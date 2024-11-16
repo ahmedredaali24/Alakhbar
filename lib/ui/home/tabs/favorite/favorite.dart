@@ -1,9 +1,8 @@
-import 'package:alakhbar/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/mythemes.dart';
-import '../../../utils/widgets/components/gradient_container_widget.dart';
 import '../../../utils/widgets/tiles/news_article_tile_widget.dart';
 
 class Favorite extends StatelessWidget {
@@ -13,7 +12,7 @@ class Favorite extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(22),
+        padding: EdgeInsets.all(22.r),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,8 +22,8 @@ class Favorite extends StatelessWidget {
                 style: MyTheme.myTheme.textTheme.displayLarge,
               ),
 
-              const SizedBox(
-                height: 15,
+               SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
 
               // Mapping the ListView data

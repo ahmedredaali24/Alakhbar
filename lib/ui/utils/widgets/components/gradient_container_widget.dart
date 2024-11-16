@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../mythemes.dart';
-
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key});
@@ -10,10 +10,10 @@ class GradientContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 20),
+      margin: EdgeInsets.only(top: 10.h),
       width: double.maxFinite,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
+          borderRadius: BorderRadius.circular(7.r),
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -23,7 +23,7 @@ class GradientContainer extends StatelessWidget {
                 MyTheme.myTheme.colorScheme.tertiary
               ])),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(15.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

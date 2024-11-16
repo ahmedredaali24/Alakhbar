@@ -31,12 +31,13 @@ class NewsScreen extends StatelessWidget {
             length: viewModel.sourcesList.length,
             child: Scaffold(
               appBar: AppBar(
+                ///تحتاج تعديل ليس الان
                 toolbarHeight: 50,
               ),
               body: Column(
                 children: [
-                  const SizedBox(
-                    height: 50,
+                   SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   TabBar(
                       onTap: (index) {
@@ -50,7 +51,7 @@ class NewsScreen extends StatelessWidget {
                       indicatorColor: Colors.transparent,
                       isScrollable: true,
                       tabs: viewModel.sourcesList
-                          .map((sources) => TapItem2(
+                          .map((sources) => TapItem(
                                 sourceEntity: sources,
                                 isSelected: viewModel.selectedIndex ==
                                     viewModel.sourcesList.indexOf(sources),

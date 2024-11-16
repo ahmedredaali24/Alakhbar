@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../utils/mythemes.dart';
 import '../../../utils/widgets/tiles/category_tile_widget.dart';
@@ -14,7 +15,7 @@ class CategorySelectionView extends StatelessWidget {
     CategorySelectionViewModel viewModel = CategorySelectionViewModel();
     return SafeArea(
         child: Padding(
-      padding: const EdgeInsets.all(22),
+      padding:  EdgeInsets.all(20.r),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,9 +34,9 @@ class CategorySelectionView extends StatelessWidget {
           //categories mapping within the gridview
           Expanded(
             child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 25,
+                  crossAxisSpacing: 20.w,
                 ),
                 itemCount: viewModel.categoryList.length,
                 itemBuilder: (context, index) {

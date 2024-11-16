@@ -1,6 +1,7 @@
 import 'package:alakhbar/ui/home/details_screen/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import '../../../../domin/entity/NewsResponseEntity.dart';
@@ -20,7 +21,7 @@ class CategoryArticleView extends StatelessWidget {
     return SafeArea(
         child: SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(22),
+        padding: EdgeInsets.all(20.r),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             // Column children
@@ -28,8 +29,11 @@ class CategoryArticleView extends StatelessWidget {
               // Text
               GradientText(
                 "$categoryName related articles",
-                style: const TextStyle(
-                    fontSize: 28, fontWeight: FontWeight.w600, height: 1),
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w600,
+                  height: .9.h,
+                ),
                 colors: [
                   MyTheme.myTheme.colorScheme.primary,
                   MyTheme.myTheme.colorScheme.secondary,
@@ -38,8 +42,8 @@ class CategoryArticleView extends StatelessWidget {
               ),
 
               //sized box
-              const SizedBox(
-                height: 9,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
 
               // Text

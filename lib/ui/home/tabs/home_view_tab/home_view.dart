@@ -1,9 +1,11 @@
 import 'package:alakhbar/domin/dependence_injection.dart';
 import 'package:alakhbar/ui/home/tabs/home_view_tab/cubit/home_view_view_model.dart';
 import 'package:alakhbar/ui/home/tabs/home_view_tab/cubit/states.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utils/mythemes.dart';
 import '../../../utils/widgets/components/gradient_container_widget.dart';
 import '../../../utils/widgets/tiles/news_article_tile_widget.dart';
@@ -21,7 +23,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(22),
+        padding: EdgeInsets.all(15.r),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,8 +39,8 @@ class HomeView extends StatelessWidget {
               ),
 
               const GradientContainer(),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
 
               Text(
