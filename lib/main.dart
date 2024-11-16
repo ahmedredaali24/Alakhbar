@@ -4,8 +4,9 @@ import 'package:alakhbar/ui/utils/bloc_observable.dart';
 import 'package:alakhbar/ui/utils/splash/splash_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-
-void main() {
+import 'package:shared_preferences/shared_preferences.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
