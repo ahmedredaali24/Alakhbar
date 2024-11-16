@@ -1,6 +1,8 @@
+import 'package:alakhbar/main.dart';
 import 'package:alakhbar/ui/home/tabs/home_view_tab/cubit/states.dart';
 import 'package:bloc/bloc.dart';
 
+import '../../../../../domin/entity/NewsResponseEntity.dart';
 import '../../../../../domin/entity/TopHeadLines.dart';
 import '../../../../../domin/use_case/top_headline_use_case.dart';
 
