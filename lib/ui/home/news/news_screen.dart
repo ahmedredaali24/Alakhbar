@@ -36,7 +36,7 @@ class NewsScreen extends StatelessWidget {
               ),
               body: Column(
                 children: [
-                   SizedBox(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   TabBar(

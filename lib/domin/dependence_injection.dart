@@ -11,7 +11,9 @@ import 'package:alakhbar/domin/repository/repositories/news_repository.dart';
 import 'package:alakhbar/domin/repository/repositories/source_repository.dart';
 import 'package:alakhbar/domin/repository/repositories/top_headline_repository.dart';
 import 'package:alakhbar/domin/use_case/get_news_use_case.dart';
+import 'package:alakhbar/domin/use_case/get_saved_top_headline_use_case.dart';
 import 'package:alakhbar/domin/use_case/get_sources_use_case.dart';
+import 'package:alakhbar/domin/use_case/save_top_headline_use_case.dart';
 import 'package:alakhbar/domin/use_case/top_headline_use_case.dart';
 
 ///topHeadlines
@@ -22,7 +24,8 @@ TopHeadlineUseCase injectTopHeadlineUseCase() {
 
 TopHeadlineRepository injectTopHeadlineRepository() {
   return TopHeadlineRepositoryImpl(
-      topHeadlineDataSource: injectTopHeadlineDataSource());
+      topHeadlineDataSource: injectTopHeadlineDataSource(),
+      offline: injectTopHeadLineOfflineDataSource());
 }
 
 TopHeadlineDataSource injectTopHeadlineDataSource() {
@@ -35,7 +38,9 @@ GetSourcesUseCase injectGetSourcesUseCase() {
 }
 
 SourcesRepository injectSourcesRepository() {
-  return SourcesRepositoryImpl(sourceDataSource: injectSourceDataSource());
+  return SourcesRepositoryImpl(
+      sourceDataSource: injectSourceDataSource(),
+      offline: injectSourcesOfflineDataSource());
 }
 
 SourceDataSource injectSourceDataSource() {
@@ -53,4 +58,13 @@ NewsRepository injectNewsRepository() {
 
 NewsDataSource injectNewsDataSource() {
   return NewsDataSourceImpl();
+}
+
+///offline
+TopHeadLineOfflineDataSource injectTopHeadLineOfflineDataSource() {
+  return TopHeadlineOfflineDataSourceImpl();
+}
+
+SourcesOfflineDataSource injectSourcesOfflineDataSource() {
+  return SourcesOfflineDataSourceImpl();
 }

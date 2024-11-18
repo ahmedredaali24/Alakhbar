@@ -1,4 +1,6 @@
+import 'package:alakhbar/data/api/api_services.dart';
 import 'package:alakhbar/domin/dependence_injection.dart';
+import 'package:alakhbar/main.dart';
 import 'package:alakhbar/ui/home/tabs/home_view_tab/cubit/home_view_view_model.dart';
 import 'package:alakhbar/ui/home/tabs/home_view_tab/cubit/states.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,8 +18,11 @@ class HomeView extends StatelessWidget {
 
   HomeView({super.key});
 
-  HomeViewViewModel viewModel =
-      HomeViewViewModel(topHeadlineUseCase: injectTopHeadlineUseCase());
+  HomeViewViewModel viewModel = HomeViewViewModel(
+    // saveTopHeadlineUseCase: injectSaveTopHeadlineUseCase(),
+    topHeadlineUseCase: injectTopHeadlineUseCase(),
+    // getSavedTopHeadlineUseCase: injectGetSavedTopHeadlineUseCase(),
+  );
 
   @override
   Widget build(BuildContext context) {

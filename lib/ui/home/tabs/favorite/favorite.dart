@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utils/mythemes.dart';
 import '../../../utils/widgets/tiles/news_article_tile_widget.dart';
 
-class Favorite extends StatelessWidget {
-  const Favorite({super.key});
+class SettingScreen extends StatelessWidget {
+  const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class Favorite extends StatelessWidget {
                 style: MyTheme.myTheme.textTheme.displayLarge,
               ),
 
-               SizedBox(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
 

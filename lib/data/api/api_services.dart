@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 
+import '../../main.dart';
 import '../model/NewsResponseDto.dart';
 import '../model/SourcesResponseDto.dart';
 import '../model/top_headline_response_dto.dart';
@@ -20,6 +21,7 @@ class ApiServices {
       var response = await http.get(url);
       var responseString = response.body;
       var json = jsonDecode(responseString);
+
       var topHeadlineResponse = TopHeadLineResponseDto.fromJson(json);
       return topHeadlineResponse;
     } catch (e) {
@@ -34,12 +36,13 @@ class ApiServices {
         {"apiKey": "e95cd10d78a34503b157d2ba843dd535", "category": categoryId});
     var response = await http.get(url);
     var responseString = response.body;
+
     var json = jsonDecode(responseString);
     var sourcesResponse = SourcesResponseDto.fromJson(json);
     return sourcesResponse;
   }
 
- static Future<NewsResponseDto?> getNews(String sourceId,
+  static Future<NewsResponseDto?> getNews(String sourceId,
       {String? query, int pageSize = 5, int page = 1}) async {
     Uri url = Uri.https(ApiConst.baseUrl, ApiConst.newsApi, {
       "apiKey": "8127c264b4d64821900aa79b6826db4e",
