@@ -20,6 +20,16 @@ class TopHeadLineResponseDto extends TopHeadLinesEntity {
       });
     }
   }
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['status'] = status;
+    map['totalResults'] = totalResults;
+    if (articles != null) {
+      map['articles'] = articles?.map((v) => v.toJson()).toList();
+    }
+    return map;
+  }
 }
 
 class Articles extends ArticlesEntity {
@@ -44,6 +54,21 @@ class Articles extends ArticlesEntity {
     publishedAt = json['publishedAt'];
     content = json['content'];
   }
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    if (source != null) {
+      map['source'] = source?.toJson();
+    }
+    map['author'] = author;
+    map['title'] = title;
+    map['description'] = description;
+    map['url'] = url;
+    map['urlToImage'] = urlToImage;
+    map['publishedAt'] = publishedAt;
+    map['content'] = content;
+    return map;
+  }
 }
 
 class Source extends SourceEntity {
@@ -53,7 +78,14 @@ class Source extends SourceEntity {
   });
 
   Source.fromJson(dynamic json) {
-    id = json['id'];
-    name = json['name'];
+    id = json['id'].toString();
+    name = json['name'].toString();
+  }
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['name'] = name;
+    return map;
   }
 }

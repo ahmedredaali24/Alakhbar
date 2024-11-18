@@ -3,16 +3,24 @@ class TopHeadLinesEntity {
     this.status,
     this.totalResults,
     this.articles,
-    this.message
+    // this.message,
   });
 
-
-  String? message;
+  // String? message;
   String? status;
   num? totalResults;
   List<ArticlesEntity>? articles;
 
 
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['status'] = status;
+    map['totalResults'] = totalResults;
+    if (articles != null) {
+      map['articles'] = articles?.map((v) => v.toJson()).toList();
+    }
+    return map;
+  }
 }
 
 class ArticlesEntity {
@@ -27,8 +35,6 @@ class ArticlesEntity {
     this.content,
   });
 
-
-
   SourceEntity? source;
   String? author;
   String? title;
@@ -39,6 +45,20 @@ class ArticlesEntity {
   String? content;
 
 
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    if (source != null) {
+      map['source'] = source?.toJson();
+    }
+    map['author'] = author;
+    map['title'] = title;
+    map['description'] = description;
+    map['url'] = url;
+    map['urlToImage'] = urlToImage;
+    map['publishedAt'] = publishedAt;
+    map['content'] = content;
+    return map;
+  }
 }
 
 class SourceEntity {
@@ -47,10 +67,14 @@ class SourceEntity {
     this.name,
   });
 
-
-
   String? id;
   String? name;
+  
 
-
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['name'] = name;
+    return map;
+  }
 }

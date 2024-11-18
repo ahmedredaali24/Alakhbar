@@ -29,10 +29,10 @@ Widget buildCustomBottomNavigationBar(
             label: "CATEGORY"),
         BottomNavigationBarItem(
             icon: Icon(
-              CupertinoIcons.heart,
+              CupertinoIcons.settings,
               color: Colors.black,
             ),
-            label: "ACCOUNT")
+            label: "Setting")
       ],
     ),
   );

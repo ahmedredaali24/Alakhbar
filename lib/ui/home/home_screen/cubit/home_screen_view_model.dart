@@ -13,7 +13,7 @@ class HomeScreenViewModel extends Cubit<HomeStates> {
   List<Widget> tabs = [
     HomeView(),
     CategorySelectionView(),
-    Favorite(),
+    SettingScreen(),
   ];
 
   void changeTabs(int newSelectedIndex) {
